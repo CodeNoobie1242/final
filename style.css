@@ -1,0 +1,270 @@
+:root {
+  color-scheme: dark;
+  --bg: #260d05;
+  --bg-alt: #4a1808;
+  --surface: rgba(78, 23, 8, 0.95);
+  --surface-strong: rgba(92, 28, 10, 0.97);
+  --text: #fff7ee;
+  --muted: #f4d8b8;
+  --primary: #ffb347;
+  --accent: #ffe082;
+  --border: rgba(255, 255, 255, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, rgba(255, 179, 71, 0.28), transparent 18%),
+    linear-gradient(180deg, #7a230a 0%, #3d1005 40%, #180603 100%);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 22px, 22px 100%;
+  opacity: 0.28;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 36px 24px 48px;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.brand {
+  font-size: 0.95rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
+
+.content {
+  display: grid;
+  gap: 32px;
+}
+
+.hero {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2.8rem, 4.6vw, 4rem);
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  text-shadow: 0 0 22px rgba(255, 179, 71, 0.25);
+}
+
+.hero p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.cards-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card,
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(102, 29, 13, 0.96), rgba(58, 15, 7, 0.98));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  padding: 28px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::before,
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 28%);
+}
+
+.card:hover,
+.panel:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+}
+
+.label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.card-art {
+  font-size: 3rem;
+  margin: 8px 0 12px;
+}
+
+.card .hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: rgba(255, 179, 71, 0.16);
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  border: 1px solid rgba(255, 179, 71, 0.28);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: rgba(255, 179, 71, 0.24);
+  transform: translateY(-1px);
+}
+
+.panel h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.panel p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.menu-grid,
+.info-stack {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.menu-item,
+.info-stack > div {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-item h2,
+.info-stack h2 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 24px 18px 36px;
+  }
+
+  .site-header {
+    justify-content: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .card,
+  .panel {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p,
+  .panel p,
+  .card .hint {
+    font-size: 1rem;
+  }
+}
